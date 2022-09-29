@@ -1,7 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DataController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +11,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [DataController::class, 'index']);
 Route::post('/', [DataController::class, 'store'])->name('store');
 Route::get('qrcode/{id}', [DataController::class, 'generate'])->name('generate');
-

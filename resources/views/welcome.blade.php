@@ -20,13 +20,28 @@
                 <form class="form-inline" action="{{ route('store') }}" method="POST">
                     @csrf
                     <div class="form-group mb-2">
-                      <input type="text" class="form-control" name="name" placeholder="Masukkan Nama">
+                      <input type="text" class="form-control" name="firstname" placeholder="Masukkan FirstName">
                     </div>
                     <div class="form-group mb-2 ml-1">
+                        <input type="text" class="form-control" name="name" placeholder="Masukkan Name">
+                      </div>
+                      <div class="form-group mb-2 ml-1">
+                        <input type="text" class="form-control" name="organization" placeholder="Masukkan Organization">
+                      </div>
+                      <div class="form-group mb-2 ml-1">
+                        <input type="text" class="form-control" name="title" placeholder="Masukkan Title">
+                      </div>
+                      <div class="form-group mb-2 ml-1">
                         <input type="email" class="form-control" name="email" placeholder="Masukkan Email">
                       </div>
                       <div class="form-group mb-2 ml-1">
-                        <input type="number" class="form-control" name="phone" placeholder="Masukkan Nomor Telephone">
+                        <input type="number" class="form-control" name="phone" placeholder="Masukkan Phone">
+                      </div>
+                      <div class="form-group mb-2 ml-1">
+                        <input type="number" class="form-control" name="mobilephone" placeholder="Masukkan Mobile Phone">
+                      </div>
+                      <div class="form-group mb-2 ml-1">
+                        <input type="text" class="form-control" name="url" placeholder="Masukkan URL">
                       </div>
                     <button type="submit" class="btn btn-primary ml-1 mb-2">Create</button>
                   </form>
@@ -34,18 +49,28 @@
                 <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">Nama</th>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Organization</th>
+                        <th scope="col">Title</th>
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
-                        <th scope="col">QR code</th>
+                        <th scope="col">MobilePhone</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">QRCode</th>
                       </tr>
                     </thead>
                     <tbody>
                      @foreach ($data as $data)
                      <tr>
+                        <td>{{ $data->firstname }}</td>
                         <td>{{ $data->name }}</td>
+                        <td>{{ $data->organization }}</td>
+                        <td>{{ $data->title }}</td>
                         <td>{{ $data->email }}</td>
                         <td>{{ $data->phone }}</td>
+                        <td>{{ $data->mobilephone }}</td>
+                        <td>{{ $data->url }}</td>
                         <td>
                             <a href="{{ route('generate',$data->id) }}" class="btn btn-primary">Generate</a>
                         </td>
